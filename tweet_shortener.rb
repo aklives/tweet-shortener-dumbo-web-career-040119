@@ -12,8 +12,7 @@ def dictionary
   }
 end
 
-def word_substituter tweet
-
+def word_substitute tweet
   tweets_array = tweet.split
   tweets_array.map! do |word|
     if dictionary.keys.include?(word.downcase)
@@ -21,7 +20,7 @@ def word_substituter tweet
     else
       word
     end
-    tweets_array.join " "
-
   end
+  tweets_array.join " "
+
 end
