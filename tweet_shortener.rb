@@ -10,7 +10,7 @@ def dictionary
     "at" => "@",
     "and" => "&"
   }
-end 
+end
 
 def word_substituter tweet
 
@@ -22,6 +22,6 @@ def word_substituter tweet
       word
     end
     tweets_array.join " "
-  
+
   end
 end
