@@ -10,8 +10,18 @@ def dictionary
     "at" => "@",
     "and" => "&"
   }
-end
+end 
 
 def word_substituter tweet
 
+  tweets_array = tweet.split
+  tweets_array.map! do |word|
+    if dictionary.keys.include?(word.downcase)
+      word = dictionary[word.downcase]
+    else
+      word
+    end
+    tweets_array.join " "
+  
+  end
 end
