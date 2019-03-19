@@ -6,12 +6,50 @@ def dictionary
     "too" => "2",
     "for" => "4",
     "four" => "4",
+    "be" => "b",
     "you" => "u",
-    "at" => "@"
+    "at" => "@",
     "and" => "&"
   }
 end
 
 def word_substituter tweet
+  tweets_array = tweet.split
+  tweets_array.map! do |word|
+    if dictionary.keys.include?(word.downcase)
+      word = dictionary[word.downcase]
+    else
+      word
+    end
+  end
+  tweets_array.join " "
+
+end
+
+
+def bulk_tweet_shortener array_of_tweets
+  array_of_tweets.each do |tweet|
+    puts word_substituter(tweet)
+  end
+end
+
+def selective_tweet_shortener tweet
+    if tweet.length > 140
+      word_substituter(tweet)
+    elsif tweet.length < 130
+      tweet
+    else
+      tweet
+    end
+
+end
+
+def shortened_tweet_truncator tweet
+
+  if tweet.length > 140
+    tweet[0..136] << "..."
+  else
+    tweet
+  end
 
 end
